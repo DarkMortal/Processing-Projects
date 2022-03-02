@@ -43,4 +43,3 @@ char getChar(String s)
    else
       return '\n';
 }
-
