@@ -4,24 +4,22 @@ float offsetX=700,
       offsetY=650;
 
 SoundFile file;
-//float posX=0,posY=0;
+
 float gravity=10,
       factor=sqrt(2),
       launchAngle=45,
       dt=0.1,
       omega=sqrt(gravity/offsetY);
 
-float timeArray[]={0,0,0};
-
 class Ball{
-  public float phase,len,velocity;
+  public float len,velocity;
   public color fill;
   public float time=0;
   private boolean isRight=true;
   private float thisOffsetX=offsetX,Vx,Vy;
   public float posX=0,posY=0;
-  public Ball(float a,float b,color c){
-    len=a; phase=b; fill=c; 
+  public Ball(float a,color c){
+    len=a; fill=c; 
     velocity=sqrt(2*gravity*len/factor);
     Vy=velocity*sin(radians(launchAngle));
     Vx=velocity*cos(radians(launchAngle));
@@ -49,13 +47,13 @@ class Ball{
   }
 }
 
-Ball balls[]={new Ball(500,0,color(255,0,0)),
-              new Ball(450,0,color(255,255,0)),
-              new Ball(400,0.1,color(0,255,0)),
-              new Ball(350,0.1,color(0,255,255)),
-              new Ball(300,0.1,color(255,255,0)),
-              new Ball(250,0.1,color(0,255,0)),
-              new Ball(200,0.2,color(255,0,255))};
+Ball balls[]={new Ball(500,color(255,0,0)),
+              new Ball(450,color(255,255,0)),
+              new Ball(400,color(0,255,0)),
+              new Ball(350,color(0,255,255)),
+              new Ball(300,color(255,255,0)),
+              new Ball(250,color(0,255,0)),
+              new Ball(200,color(255,0,255))};
 
 void drawCircles(){
   for(int i=0;i<7;i++) balls[i].Update();
@@ -74,7 +72,7 @@ void drawLine(float x1,float y1,float angle,float l){
 
 void setup(){
   fullScreen();
-  surface.setTitle("Simple Pendulum");
+  surface.setTitle("Bouncing Balls 2");
   surface.setResizable(false);
   background(0);
   file = new SoundFile(this,"Bounce.aiff");
@@ -83,8 +81,6 @@ void setup(){
 void draw(){
   clear();
   drawCircles();
-  
-  //line(offsetX,offsetY,300/factor,offsetY);
   stroke(255,255,255);
   drawLine(offsetX,offsetY,45,600); 
   drawLine(offsetX,offsetY,45+90,600);
