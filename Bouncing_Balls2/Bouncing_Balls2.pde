@@ -18,10 +18,13 @@ class Ball{
   public color fill;
   public float time=0;
   private boolean isRight=true;
-  private float thisOffsetX=offsetX;
+  private float thisOffsetX=offsetX,Vx,Vy;
   public float posX=0,posY=0;
   public Ball(float a,float b,color c){
-    len=a; phase=b; fill=c; velocity=sqrt(2*gravity*len/factor);
+    len=a; phase=b; fill=c; 
+    velocity=sqrt(2*gravity*len/factor);
+    Vy=velocity*sin(radians(launchAngle));
+    Vx=velocity*cos(radians(launchAngle));
   }
   public void Draw(){
     fill(fill);
@@ -40,8 +43,6 @@ class Ball{
       file.play();
     }
     time+=dt;
-    float Vy=velocity*sin(radians(launchAngle)),
-    Vx=velocity*cos(radians(launchAngle));
     posX=(isRight)?(Vx*time*(-1)):(Vx*time);
     posY=Vy*time-(gravity/2)*time*time;
     Draw();
