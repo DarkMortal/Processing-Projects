@@ -6,10 +6,9 @@ float offsetX=700,
 SoundFile file;
 
 float gravity=10,
-      factor=sqrt(2),
-      launchAngle=45,
       dt=0.1,
-      omega=sqrt(gravity/offsetY);
+      factor=sqrt(2),
+      launchAngle=45;
 
 class Ball{
   public float len,velocity;
