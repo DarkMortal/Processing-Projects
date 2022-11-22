@@ -18,7 +18,7 @@ void setup(){
 
 void draw(){
   clear();
-  translate(400,500);
+  translate(250,250);
   float x = 0.0 , y = 0.0;
   float prevX = 0.0, prevY = 0.0;
   float radius = 0.0;

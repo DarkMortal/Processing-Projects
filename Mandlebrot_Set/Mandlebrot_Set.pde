@@ -7,7 +7,8 @@ float angle = 0;
 //−0.4 + 0.6i Related to the Golden Ratio
 
 void setup() {
-  size(640, 360);
+//size(640, 360);
+  fullScreen();
   colorMode(HSB, 1);
 }
 void draw() {
@@ -18,7 +19,7 @@ void draw() {
   float ca = cos(angle*3.213);//sin(angle);
   float cb = sin(angle);
 
-  angle += 0.02;
+  angle += 0.005;
 
   background(255);
 
