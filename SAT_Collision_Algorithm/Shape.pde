@@ -61,8 +61,7 @@ class Shape{
   public void checkCollision(Shape sh){
     for(int i=0;i<this.arr.length;i++){
       PVector a = this.arr[i], b = this.arr[(i+1)%this.arr.length];
-      PVector normal = new PVector(b.y-a.y,b.x-a.x);
-      normal.x = -1.0*normal.x;
+      PVector normal = new PVector(b.y-a.y,a.x-b.x);
       float[][] deltaArray = projectVertices(this.arr,sh.arr,normal);
       if(deltaArray[0][0] > deltaArray[1][1] || deltaArray[1][0] > deltaArray[0][1]){
         this.isCollided = sh.isCollided = false;
@@ -71,8 +70,7 @@ class Shape{
     }
     for(int i=0;i<sh.arr.length;i++){
       PVector a = sh.arr[i], b = sh.arr[(i+1)%sh.arr.length];
-      PVector normal = new PVector(b.y-a.y,b.x-a.x);
-      normal.x = -1.0*normal.x;
+      PVector normal = new PVector(b.y-a.y,a.x-b.x);
       float[][] deltaArray = projectVertices(this.arr,sh.arr,normal);
       if(deltaArray[0][0] > deltaArray[1][1] || deltaArray[1][0] > deltaArray[0][1]){
         this.isCollided = sh.isCollided = false;
