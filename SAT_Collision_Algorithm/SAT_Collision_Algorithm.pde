@@ -65,8 +65,7 @@ void keyPressed(){
 }
 
 void setup(){
-  fullScreen();
-  background(0);
+  size(550,500);
   
   //Shift these shapes
   sh2.translateX(200.0);
@@ -80,7 +79,7 @@ void setup(){
 void draw(){
   clear();
   textSize(20);
-  text("Selected Shape: "+activeString, 700,25);
+  text("Selected Shape: "+activeString, 300,25);
   translate(offsetX,offsetY);
   sh1.show();
   sh2.show();

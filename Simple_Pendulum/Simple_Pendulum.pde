@@ -1,4 +1,4 @@
-float offsetX=700,
+float offsetX = 700,
       radius=50,
       startY=50,
       offsetY=500;
@@ -12,12 +12,13 @@ float gravity=10,
       angle=45;
 
 void setup(){
-  fullScreen();
+  size(850,600);
   surface.setTitle("Simple Pendulum");
   surface.setResizable(false);
   background(0);
-  offsetY=50.0+getFloat("Enter the Length of the String in m");
-  angle=getFloat("Enter max angle of the string wrt to mean position in degrees");
+  offsetY=510.0;
+  offsetX=width/2;
+  angle=60;
 }
 
 void draw(){

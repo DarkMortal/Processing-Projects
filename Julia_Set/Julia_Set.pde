@@ -7,8 +7,7 @@ float angle = 0;
 //−0.4 + 0.6i Related to the Golden Ratio
 
 void setup() {
-//size(640, 360);
-  fullScreen();
+  size(640, 400);
   colorMode(HSB, 1);
 }
 void draw() {

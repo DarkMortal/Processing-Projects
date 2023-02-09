@@ -1,23 +1,23 @@
 import processing.sound.*;
-float offsetX=700,
-      radius=25,
-      offsetY=650;
+float offsetX = 0,
+      radius = 25,
+      offsetY = 0;
 
 SoundFile file;
 
-float gravity=10,
-      dt=0.1,
-      factor=sqrt(2),
-      launchAngle=45;
+float gravity = 10,
+      dt = 0.1,
+      factor = sqrt(2),
+      launchAngle = 45;
 
 class Ball{
-  public float len,velocity;
+  public float len, velocity;
   public color fill;
-  public float time=0;
-  private boolean isRight=true;
-  private float thisOffsetX=offsetX,Vx,Vy;
-  public float posX=0,posY=0;
-  public Ball(float a,color c){
+  public float time = 0;
+  private boolean isRight = true;
+  private float thisOffsetX = 350, Vx, Vy;
+  public float posX = 0, posY = 550;
+  Ball(float a,color c){
     len=a; fill=c; 
     velocity=sqrt(2*gravity*len/factor);
     Vy=velocity*sin(radians(launchAngle));
@@ -30,13 +30,15 @@ class Ball{
   }
   public void Update(){
     if(posX>=(2*len/factor)){
-      thisOffsetX=offsetX;
-      posX=posY=time=0; isRight=true;
+      thisOffsetX = offsetX;
+      posX = posY = time = 0;
+      isRight=true;
       file.play();
     }
     else if(posX<=(len/factor)*(-2)){
       thisOffsetX=offsetX-2*len/factor;
-      posX=posY=time=0; isRight=false;
+      posX=posY=time=0;
+      isRight=false;
       file.play();
     }
     time+=dt;
@@ -70,7 +72,9 @@ void drawLine(float x1,float y1,float angle,float l){
 } 
 
 void setup(){
-  fullScreen();
+  size(700,700);
+  offsetX = width/2;
+  offsetY = height/2+200;
   surface.setTitle("Bouncing Balls 2");
   surface.setResizable(false);
   background(0);

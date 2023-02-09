@@ -1,6 +1,6 @@
 float time = 0.0;
 
-final float dt = 0.05, R = 175;
+final float dt = 0.05, R = 120;
 
 float currentY = 0.0;
 
@@ -9,7 +9,7 @@ int num = 1;
 FloatList points = new FloatList();
 
 void setup(){
-  fullScreen();
+  size(950,600);
   surface.setTitle("Fourier Series");
   surface.setResizable(false);
   num = getInt("Enter n");
