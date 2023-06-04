@@ -50,7 +50,7 @@ void draw() {
   text("(CA)² = " + roundOff(AC * AC, 2) + "\n(AB)² + (BC)² - 2*AB*BC*cos(B) = " + roundOff(AB * AB + BC * BC - 2 * AB * BC * cos(angle2), 3), 10, 630 + offSetY);
 
   // marking the points
-  fill(255, 0, 0);
+  fill(255, 255, 0);
   text("A = " + roundOff(degrees(angle1), 3) + "°", p1.x + 3, p1.y - 3);
   text("B = " + roundOff(degrees(angle2), 3) + "°", p2.x + 3, p2.y - 3);
   text("C = " + roundOff(degrees(angle3), 3) + "°", p3.x + 3, p3.y - 3);
