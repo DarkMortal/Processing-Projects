@@ -19,9 +19,9 @@ void draw() {
   ellipse(p3.x, p3.y, radius, radius);
   ellipse(centroid.x, centroid.y, radius, radius);
 
-  float AB = mag(p2.x - p1.x, p2.y - p1.y),
-    AC = mag(p3.x - p1.x, p3.y - p1.y),
-    BC = mag(p3.x - p2.x, p3.y - p2.y);
+  float AB = PixelToCm(p1.dist(p2)),
+    AC = PixelToCm(p1.dist(p3)),
+    BC = PixelToCm(p2.dist(p3));
 
   float angle1 = PVector.angleBetween(new PVector(p2.x - p1.x, p2.y - p1.y), new PVector(p3.x - p1.x, p3.y - p1.y));
   float angle2 = PVector.angleBetween(new PVector(p1.x - p2.x, p1.y - p2.y), new PVector(p3.x - p2.x, p3.y - p2.y));
@@ -31,9 +31,9 @@ void draw() {
   rect(0, 0, offSetX, height);
   fill(0);
   // angle sum property
-  text("Sum of angles = " + roundOff(angle1 + angle2 + angle3, 0), 10, 25 + offSetY);
+  text("Sum of angles = " + roundOff(degrees(angle1 + angle2 + angle3), 0), 10, 25 + offSetY);
   // sides
-  text("AB = " + roundOff(AB, 2) + "\nBC = " + roundOff(BC, 2) + "\nCA = " + roundOff(AC, 2), 10, 60 + offSetY);
+  text("AB = " + roundOff(AB, 2) + " cm\nBC = " + roundOff(BC, 2) + " cm\nCA = " + roundOff(AC, 2)+" cm", 10, 60 + offSetY);
 
   // sine law
   textSize(20);
