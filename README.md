@@ -1,7 +1,9 @@
 # This Repository contains all my Processing sketches
 
 ## Notable Ones:
-- MandleBrot Set
+- Julia Set
+- Point inside a triangle
+- Convex Hull using Graham Scan
 - Terrian Generation using Perlin Noise Field
 - Collision Detection using Seperate Axis Theorem
 - Shortest Path Finding Algorithm using Wave Propagation
