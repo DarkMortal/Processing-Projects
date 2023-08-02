@@ -20,8 +20,14 @@ void draw() {
   ellipse(centroid.x, centroid.y, radius, radius);
 
   float AB = PixelToCm(p1.dist(p2)),
-    AC = PixelToCm(p1.dist(p3)),
-    BC = PixelToCm(p2.dist(p3));
+        AC = PixelToCm(p1.dist(p3)),
+        BC = PixelToCm(p2.dist(p3));
+        
+  float area = Area(new float[][]{
+           {p1.x,p1.y,1.0},
+           {p2.x,p2.y,1.0},
+           {p3.x,p3.y,1.0},
+        });
 
   float angle1 = PVector.angleBetween(new PVector(p2.x - p1.x, p2.y - p1.y), new PVector(p3.x - p1.x, p3.y - p1.y));
   float angle2 = PVector.angleBetween(new PVector(p1.x - p2.x, p1.y - p2.y), new PVector(p3.x - p2.x, p3.y - p2.y));
@@ -49,6 +55,12 @@ void draw() {
   text("(BC)² = " + roundOff(BC * BC, 2) + "\n(AB)² + (CA)² - 2*AB*CA*cos(A) = " + roundOff(AB * AB + AC * AC - 2 * AB * AC * cos(angle1), 3), 10, 530 + offSetY);
   text("(CA)² = " + roundOff(AC * AC, 2) + "\n(AB)² + (BC)² - 2*AB*BC*cos(B) = " + roundOff(AB * AB + BC * BC - 2 * AB * BC * cos(angle2), 3), 10, 630 + offSetY);
 
+  // area of triangle
+  textSize(20);
+  text("Area of Triangle", 10, 750 + offSetY);
+  textSize(25);
+  text("Area = "+roundOff(area,2)+" sq.cm", 10, 775 + offSetY);
+  
   // marking the points
   fill(255, 255, 0);
   text("A = " + roundOff(degrees(angle1), 3) + "°", p1.x + 3, p1.y - 3);

@@ -16,3 +16,13 @@ float roundOff(float x,int n){
 float PixelToCm(float x){
   return x*pixelCm;
 }
+
+float Area(float[][] matrix){
+  float sum = 0.0;
+  sum += (matrix[0][0] * matrix[1][1] - matrix[0][1] * matrix[1][0]);
+  sum += (matrix[1][0] * matrix[2][1] - matrix[1][1] * matrix[2][0]);
+  sum -= (matrix[0][0] * matrix[2][1] - matrix[2][0] * matrix[0][1]);
+  sum *= pixelCm;
+  sum *= pixelCm;
+  return abs(sum)/2;
+}
